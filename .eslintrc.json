@@ -9,7 +9,9 @@
     "ecmaVersion": "latest"
   },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "warn",
+    "'@typescript-eslint/dot-notation": "warn"
   },
-  "plugins": ["prettier"]
+  "plugins": ["prettier"],
+  "project": "tsconfig.json"
 }
