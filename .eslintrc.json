@@ -10,8 +10,7 @@
   },
   "rules": {
     "prettier/prettier": "warn",
-    "'@typescript-eslint/dot-notation": "warn"
+    "dot-notation": 0
   },
-  "plugins": ["prettier"],
-  "project": "tsconfig.json"
+  "plugins": ["prettier"]
 }

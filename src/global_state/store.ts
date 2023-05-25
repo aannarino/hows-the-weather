@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { mainReducer } from './mainReducer';
-import { currentWeatherApi } from 'src/api/services/currentWeatherApi';
+import { openWeatherAPI } from 'src/api/services/openWeatherAPI';
 
 export const store = configureStore({
   reducer: mainReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(currentWeatherApi.middleware),
+    getDefaultMiddleware().concat([openWeatherAPI.middleware]),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -1,12 +1,27 @@
 import './App.css';
-import { useGetCurrentWeatherByLocationQuery } from './api/services/currentWeatherApi';
+import {
+  useGetCurrentWeatherByLocationQuery,
+  useGetGeocodingLocationQuery,
+} from './api/services/openWeatherAPI';
 import { Provider } from 'react-redux';
 import { store } from './global_state/store';
 
 function App() {
-  const { data, isLoading, error } = useGetCurrentWeatherByLocationQuery({
+  const {
+    data: weatherData,
+    isLoading: isLoadingWeatherQuery,
+    error: weatherQueryError,
+  } = useGetCurrentWeatherByLocationQuery({
     lat: 59.911491,
     lon: 10.757933,
+    appid: '24f3b9f38b0b617fb0f701ebc854dbd1',
+  });
+  const {
+    data: geocodingData,
+    isLoading: isLoadingGeocodingQuery,
+    error: geocodingQueryError,
+  } = useGetGeocodingLocationQuery({
+    q: 'oslo,london',
     appid: '24f3b9f38b0b617fb0f701ebc854dbd1',
   });
   return (
@@ -14,16 +29,21 @@ function App() {
       <div className="App">
         <p>Hello World</p>
         <header className="App-header">
-          {isLoading ? (
+          {isLoadingWeatherQuery || isLoadingGeocodingQuery ? (
             <p>LOADING...</p>
-          ) : !error ? (
+          ) : !weatherQueryError && !geocodingQueryError ? (
             <pre>
-              <code>{JSON.stringify(data)}</code>
+              <code>{JSON.stringify(weatherData)}</code>
+              <code>{JSON.stringify(geocodingData)}</code>
             </pre>
           ) : (
             <div>
               <p>An error occurred</p>
-              <p>{JSON.stringify(error)}</p>
+              <p>
+                {JSON.stringify(
+                  weatherQueryError ? weatherQueryError : geocodingQueryError
+                )}
+              </p>
             </div>
           )}
           <p>
