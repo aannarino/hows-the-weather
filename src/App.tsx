@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './global_state/store';
 
 function App() {
-  const {
+  /*   const {
     data: weatherData,
     isLoading: isLoadingWeatherQuery,
     error: weatherQueryError,
@@ -15,7 +15,7 @@ function App() {
     lat: 59.911491,
     lon: 10.757933,
     appid: '24f3b9f38b0b617fb0f701ebc854dbd1',
-  });
+  }); */
   const {
     data: geocodingData,
     isLoading: isLoadingGeocodingQuery,
@@ -29,7 +29,7 @@ function App() {
       <div className="App">
         <p>Hello World</p>
         <header className="App-header">
-          {isLoadingWeatherQuery || isLoadingGeocodingQuery ? (
+          {/* {isLoadingWeatherQuery || isLoadingGeocodingQuery ? (
             <p>LOADING...</p>
           ) : !weatherQueryError && !geocodingQueryError ? (
             <pre>
@@ -48,7 +48,7 @@ function App() {
           )}
           <p>
             Edit <code>src/App.js</code> and save to reload.
-          </p>
+          </p> */}
           <a
             className="App-link"
             href="https://reactjs.org"
