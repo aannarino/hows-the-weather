@@ -1,24 +1,15 @@
 import Typography from '@mui/material/Typography';
-import { TypographyProps } from '@mui/material/Typography';
+import type { TypographyProps } from '@mui/material/Typography';
 
 type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface TemperatureDisplayProps {
   value: number;
   unit: 'C' | 'F';
+  prepend?: string;
   size?: size;
   TypographyProps?: TypographyProps;
 }
-
-export const TemperatureDisplay = (props: TemperatureDisplayProps) => {
-  const { value, unit, size = 'sm', TypographyProps = {} } = props;
-
-  return (
-    <Typography {...TypographyProps} fontSize={sizeMap[size]}>
-      {value}&deg;{unit}
-    </Typography>
-  );
-};
 
 const sizeMap: Record<size, string> = {
   xs: '6px',
@@ -26,4 +17,20 @@ const sizeMap: Record<size, string> = {
   md: '24px',
   lg: '48px',
   xl: '96px',
+};
+
+export const TemperatureDisplay = (props: TemperatureDisplayProps) => {
+  const {
+    value,
+    unit,
+    prepend = '',
+    size = 'sm',
+    TypographyProps = {},
+  } = props;
+
+  return (
+    <Typography {...TypographyProps} fontSize={sizeMap[size]}>
+      {prepend} {value}&deg;{unit}
+    </Typography>
+  );
 };

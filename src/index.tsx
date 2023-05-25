@@ -7,23 +7,20 @@ import { DashboardPage } from './application/dashboard/DashboardPage';
 import { LocationViewPage } from './application/locationView/LocationViewPage';
 import { ErrorPage } from './application/ErrorPage';
 
-const router = createBrowserRouter(
-  [
-    {
-      path: '/hows-the-weather/',
-      element: <DashboardPage />,
-    },
-    {
-      path: '/hows-the-weather/location/:city',
-      element: <LocationViewPage />,
-    },
-    {
-      path: '*',
-      element: <ErrorPage />,
-    },
-  ],
-  { basename: '' }
-);
+const router = createBrowserRouter([
+  {
+    path: '/hows-the-weather/',
+    element: <DashboardPage />,
+  },
+  {
+    path: '/hows-the-weather/location/:city',
+    element: <LocationViewPage />,
+  },
+  {
+    path: '*',
+    element: <ErrorPage />,
+  },
+]);
 const rootElement = document.getElementById('root')!;
 const root = ReactDOM.createRoot(rootElement);
 root.render(
