@@ -1,5 +1,5 @@
-import React from 'react';
+import { AppBar } from 'src/components/AppBar';
 
 export const DashboardPage = () => {
-  return <div>This is the dashboard page</div>;
+  return <AppBar title="Dashboard" />;
 };

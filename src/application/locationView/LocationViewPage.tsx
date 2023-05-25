@@ -1,5 +1,14 @@
-import React from 'react';
+import { AppBar } from 'src/components/AppBar';
+import { useNavigate } from 'react-router';
 
 export const LocationViewPage = () => {
-  return <div>This is the Location page</div>;
+  const navigate = useNavigate();
+  const backButtonCB = () => navigate(-1);
+  return (
+    <AppBar
+      title="Replace with location name"
+      displayBackButton={true}
+      onClickBackButton={backButtonCB}
+    />
+  );
 };
