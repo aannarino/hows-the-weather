@@ -7,25 +7,34 @@ import { TemperatureDisplay } from './TemperatureDisplay';
 import type { TemperatureDisplayProps } from './TemperatureDisplay';
 import { Link } from 'react-router-dom';
 import { LinkProps } from 'react-router-dom';
+import { ErrorBoundary, useErrorBoundary } from 'react-error-boundary';
+import { ErrorFallbackCard } from './ErrorFallbackComponents/ErrorFallbackCard';
 
 export interface TemperatureByLocationCardProps
   extends TemperatureDisplayProps {
   location: string;
+  error?: any;
   CardProps?: CardProps;
   CardContentProps?: CardContentProps;
   LinkProps?: LinkProps;
 }
 
-export const TemperatureByLocationCard = (
-  props: TemperatureByLocationCardProps
-) => {
+const TemperatureByLocationCard = (props: TemperatureByLocationCardProps) => {
+  const { showBoundary } = useErrorBoundary();
   const {
     location,
     CardProps = {},
     CardContentProps = {},
     LinkProps = {},
+    error = null,
     ...TemperatureDisplayProps
   } = props;
+
+  //This allows us to display an error boundary outside of rendering
+  if (error) {
+    showBoundary(error);
+  }
+
   return (
     <Card {...CardProps}>
       <Link to={`/hows-the-weather/location/${location}`} {...LinkProps}>
@@ -36,3 +45,15 @@ export const TemperatureByLocationCard = (
     </Card>
   );
 };
+
+const TemperatureByLocationCardWithError = (
+  props: TemperatureByLocationCardProps
+) => {
+  return (
+    <ErrorBoundary fallbackRender={() => <ErrorFallbackCard />}>
+      <TemperatureByLocationCard {...props} />
+    </ErrorBoundary>
+  );
+};
+
+export default TemperatureByLocationCardWithError;
