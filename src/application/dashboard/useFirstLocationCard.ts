@@ -1,8 +1,7 @@
-import { TemperatureByLocationCardProps } from 'src/components/TemperatureByLocationCard';
+import type { TemperatureByLocationCardProps } from 'src/components/TemperatureByLocationCard';
 import { useGetCurrentWeatherByCityQuery } from 'src/api/services/openWeatherAPI';
 import { useError } from 'src/hooks/useError';
-import { useEffect, useState } from 'react';
-import type { GeocodingResponse } from 'src/types';
+import { useEffect } from 'react';
 
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY || '';
 
@@ -21,7 +20,7 @@ export const useFirstLocationCard = (): TemperatureByLocationCardProps => {
     data || {};
 
   useEffect(() => {
-    if (error) setError(fetchingError);
+    if (fetchingError) setError(fetchingError);
   }, [fetchingError]);
 
   return {

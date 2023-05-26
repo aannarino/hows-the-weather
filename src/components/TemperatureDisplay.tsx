@@ -6,6 +6,7 @@ type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export interface TemperatureDisplayProps {
   value: number;
   unit: 'C' | 'F';
+  precision?: number;
   prepend?: string;
   size?: size;
   TypographyProps?: TypographyProps;
@@ -19,6 +20,17 @@ const sizeMap: Record<size, string> = {
   xl: '96px',
 };
 
+// Value to be passed into toFixed must be between 0 and 100 (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed#parameters)
+const normalizePrecision = (precision: number) => {
+  if (precision < 0) {
+    return 0;
+  } else if (precision > 100) {
+    return 100;
+  } else {
+    return precision;
+  }
+};
+
 export const TemperatureDisplay = (props: TemperatureDisplayProps) => {
   const {
     value,
@@ -26,11 +38,14 @@ export const TemperatureDisplay = (props: TemperatureDisplayProps) => {
     prepend = '',
     size = 'sm',
     TypographyProps = {},
+    precision = 0,
   } = props;
+
+  let precisionNormalized = normalizePrecision(precision);
 
   return (
     <Typography {...TypographyProps} fontSize={sizeMap[size]}>
-      {prepend} {value}&deg;{unit}
+      {prepend} {value.toFixed(precisionNormalized)}&deg;{unit}
     </Typography>
   );
 };

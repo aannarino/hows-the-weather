@@ -55,7 +55,6 @@ export const openWeatherAPI = createApi({
 
         const allLocations = locationResult.data as Array<GeocodingResponse>;
         const location = allLocations[0];
-        console.log(location);
         const result = await fetchWithBQ(
           `data/2.5/weather?lat=${location.lat}&lon=${location.lon}&appid=${appid}&mode=${mode}&units=${units}&lang=${lang}`
         );
