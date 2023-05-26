@@ -1,6 +1,39 @@
-# Getting Started with Create React App
+# Welcome to the source code for the hows-the-weather application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Directory layout
+
+Most of the code is located in `/src` and is separated into different directories:
+
+- `/src/api` Code related to client-side endpoints for fetching data
+- `/src/application` Code which is specific to rendering the application. This direcotry is split up by page route. Each page directory contains the main page, and any components, utility methods, types, etc, specific to rendering page (such as the dashboard or location view page).
+- `/src/components` This contains reusable components which have been identified as being used in multiple places.
+- `/src/global_state` This contains code for any global state needed in the application. This is wiring mainly for RTK Query to use the redux store to cache query results. This application tries to used as little global state as possible.
+- `/src/hooks` This contains any common hooks used across multiple components or pages.
+- `utils` This contains any common utility functions used across multiple pages.
+
+## Running the application
+
+This application is deployed to GitHub Pages and can be viewed at [https://aannarino.github.io/hows-the-weather/](https://aannarino.github.io/hows-the-weather/). The routing can be a bit funny, so sometimes refreshing a page will return a 404
+
+You can also run it locally following the steps below
+
+### Prerequisits
+
+- In order to run this locally, you must provide an api key from the OpenWeather API [](https://openweathermap.org/api)
+- You must then create .env.local or .env.development.local file at the root of the project and add the key with variable name REACT_APP_WEATHER_API_KEY;
+
+```
+//In the .env.local file
+  REACT_APP_WEATHER_API_KEY=your_api_key
+```
+
+- you should have the latest version of node installed
+- you should have the latest version of npm installed
+
+### Start the server
+
+- Run `npm install` to ensure all dependencies are installed
+- Run `npm start` to start the development server. This should open up the webpage in your default browser.
 
 ## Available Scripts
 
@@ -39,32 +72,17 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Improvements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [] Testing UI: Add tests to AppBar
+- [] Testing UI: Add tests to DistanceDisplay
+- [] Testing UI: Add tests to PercentDisplay
+- [] Testing UI: Add tests to TimeDisplay
+- [] Testing UI: Add tests to TemperatureDisplay
+- [] Testing UI: Add tests to TemperatureByLocationCard
+- [] Improvement: Display a fallback error page
+- [] Improvement: extract and display error messages where relevant
+- [] Improvement: Display a loading component instead of simple text
+- [] Improvement: Inject API Key in RTK Query endpoint instead of retrieving it in component files
+- [] Feature: Allow user to switch units. This should be saved in local storage
+- [] Feature: Allow users to change default locations. Should be saved in local storage
