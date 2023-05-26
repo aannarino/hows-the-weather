@@ -4,6 +4,7 @@ import { TemperatureOverview } from './components/TemperatureOverview';
 import { AdditionalInfoOverview } from './components/AdditionalInfoOverview';
 import Grid from '@mui/material/Grid';
 import { useGetCurrentWeatherByCityQuery } from 'src/api/services/openWeatherAPI';
+import { styled } from '@mui/system';
 
 const weatherApiKey = process.env.REACT_APP_WEATHER_API_KEY || '';
 
@@ -39,25 +40,41 @@ export const LocationViewPage = () => {
         // TODO: Add a proper loader
         <div> Loading weather info for {city} </div>
       ) : (
-        <Grid container alignItems={'center'} columnSpacing={2} rowSpacing={4}>
-          <Grid item xs={12} sm={6}>
+        <FlexWrapper>
+          <div style={{ padding: '8px' }}>
             <TemperatureOverview
               highTemp={highTemp}
               lowTemp={lowTemp}
               temp={temp}
               status={status}
             />
-          </Grid>
-          <Grid item xs={12} sm={6}>
+          </div>
+          <div style={{ maxWidth: '500px', padding: '8px' }}>
             <AdditionalInfoOverview
               sunrise={sunrise}
               sunset={sunset}
               humidity={humidity}
               visibility={visibilityKm}
             />
-          </Grid>
-        </Grid>
+          </div>
+        </FlexWrapper>
       )}
     </>
   );
 };
+
+const FlexWrapper = styled('div')((props) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '20px',
+  flexWrap: 'wrap',
+  [props.theme.breakpoints.up('xs')]: {
+    gap: '30px',
+  },
+  [props.theme.breakpoints.up('sm')]: {
+    gap: '2 0px',
+  },
+  [props.theme.breakpoints.up('md')]: {
+    gap: '100px',
+  },
+}));
