@@ -34,7 +34,7 @@ export const AppBar = (
     ...AppBarProps
   } = props;
   return (
-    <MUIAppBar position="static" {...AppBarProps}>
+    <MUIAppBar position="static" sx={{ marginBottom: 4 }} {...AppBarProps}>
       <Toolbar {...ToolbarProps}>
         {displayBackButton && (
           <IconButton

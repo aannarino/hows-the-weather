@@ -39,8 +39,8 @@ export const LocationViewPage = () => {
         // TODO: Add a proper loader
         <div> Loading weather info for {city} </div>
       ) : (
-        <Grid container alignItems={'center'}>
-          <Grid item xs={6}>
+        <Grid container alignItems={'center'} columnSpacing={2} rowSpacing={4}>
+          <Grid item xs={12} sm={6}>
             <TemperatureOverview
               highTemp={highTemp}
               lowTemp={lowTemp}
@@ -48,7 +48,7 @@ export const LocationViewPage = () => {
               status={status}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={6}>
             <AdditionalInfoOverview
               sunrise={sunrise}
               sunset={sunset}

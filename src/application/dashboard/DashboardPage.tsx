@@ -9,7 +9,7 @@ export const DashboardPage = () => {
   return (
     <>
       <AppBar title="Dashboard" />
-      <Grid container spacing={1} marginTop={'10px'} padding={4}>
+      <Grid container spacing={1}>
         <Grid item xs={12} md={4}>
           <TemperatureByLocationCard {...useUserLocationCard()} />
         </Grid>

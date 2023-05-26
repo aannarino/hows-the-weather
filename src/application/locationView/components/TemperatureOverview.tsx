@@ -1,5 +1,6 @@
 import { TemperatureDisplay } from 'src/components/TemperatureDisplay';
 import Typography from '@mui/material/Typography';
+import { sizeMap } from 'src/utils/styleUtils';
 
 export interface TemperatureOverviewProps {
   highTemp: number;
@@ -13,16 +14,24 @@ export const TemperatureOverview = (props: TemperatureOverviewProps) => {
   const { highTemp, lowTemp, temp, status, unit = 'C' } = props;
   return (
     <div>
-      <Typography align="center">{status}</Typography>
+      <Typography fontSize={sizeMap['md']} align="center">
+        {status}
+      </Typography>
       <TemperatureDisplay
         TypographyProps={{ align: 'center' }}
-        size="lg"
+        size="xl"
         value={temp}
         unit={unit}
       />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <TemperatureDisplay value={highTemp} unit={unit} prepend="H:" />
         <TemperatureDisplay
+          size="md"
+          value={highTemp}
+          unit={unit}
+          prepend="H:"
+        />
+        <TemperatureDisplay
+          size="md"
           TypographyProps={{ paddingLeft: '8px' }}
           value={lowTemp}
           unit={unit}
