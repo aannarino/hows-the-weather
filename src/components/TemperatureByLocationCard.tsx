@@ -3,6 +3,7 @@ import type { CardProps } from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import type { CardContentProps } from '@mui/material/CardContent';
 
+import { CardSkeletonLoader } from './SkeletonLoaders/CardSkeletonLoader';
 import { TemperatureDisplay } from './TemperatureDisplay';
 import type { TemperatureDisplayProps } from './TemperatureDisplay';
 import { Link } from 'react-router-dom';
@@ -13,6 +14,7 @@ import { ErrorFallbackCard } from './ErrorFallbackComponents/ErrorFallbackCard';
 export interface TemperatureByLocationCardProps
   extends TemperatureDisplayProps {
   location: string;
+  loading?: boolean;
   error?: any;
   CardProps?: CardProps;
   CardContentProps?: CardContentProps;
@@ -23,6 +25,7 @@ const TemperatureByLocationCard = (props: TemperatureByLocationCardProps) => {
   const { showBoundary } = useErrorBoundary();
   const {
     location,
+    loading = false,
     CardProps = {},
     CardContentProps = {},
     LinkProps = {},
@@ -35,7 +38,9 @@ const TemperatureByLocationCard = (props: TemperatureByLocationCardProps) => {
     showBoundary(error);
   }
 
-  return (
+  return loading ? (
+    <CardSkeletonLoader />
+  ) : (
     <Card {...CardProps}>
       <Link to={`/hows-the-weather/location/${location}`} {...LinkProps}>
         <CardContent {...CardContentProps}>
@@ -49,8 +54,15 @@ const TemperatureByLocationCard = (props: TemperatureByLocationCardProps) => {
 const TemperatureByLocationCardWithError = (
   props: TemperatureByLocationCardProps
 ) => {
+  const onError = (error: any) => {
+    //Here is where we would log any errors
+    console.log('Error in TemperatureByCard: ', JSON.stringify(error));
+  };
   return (
-    <ErrorBoundary fallbackRender={() => <ErrorFallbackCard />}>
+    <ErrorBoundary
+      fallbackRender={() => <ErrorFallbackCard />}
+      onError={onError}
+    >
       <TemperatureByLocationCard {...props} />
     </ErrorBoundary>
   );

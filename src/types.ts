@@ -52,7 +52,16 @@ export type AvailableLanguages =
 export interface CurrentWeatherByLocationQueryParameters {
   lat: number; //latitude coordinate
   lon: number; //longitude coordinate
-  appid: string; //spi key
+  appid: string; //api key
+  mode?: 'xml' | 'html'; //Will use JSON if not specified
+  units?: 'standard' | 'metric' | 'imperial'; //default is standard
+  lang?: AvailableLanguages; //Gets the output in the specified language
+}
+
+export interface CurrentWeatherByCityQueryParameters {
+  city: string;
+  appid: string;
+  limit?: number;
   mode?: 'xml' | 'html'; //Will use JSON if not specified
   units?: 'standard' | 'metric' | 'imperial'; //default is standard
   lang?: AvailableLanguages; //Gets the output in the specified language
@@ -119,10 +128,10 @@ export interface GeocodingQueryParameters {
 }
 
 export interface GeocodingResponse {
-  name?: string; //name of found location
+  name: string; //name of found location
   local_names?: {};
-  lat?: number; //latitude of found location
-  lon?: number; //longitude of found location
-  country?: string; //country of found location
+  lat: number; //latitude of found location
+  lon: number; //longitude of found location
+  country: string; //country of found location
   state?: string; //state (if available) of found location
 }
