@@ -19,6 +19,7 @@ You can also run it locally following the steps below
 
 ### Prerequisits
 
+- clone the application `git clone https://github.com/aannarino/hows-the-weather.git`
 - In order to run this locally, you must provide an api key from the OpenWeather API [](https://openweathermap.org/api)
 - You must then create .env.local or .env.development.local file at the root of the project and add the key with variable name REACT_APP_WEATHER_API_KEY;
 
@@ -74,15 +75,15 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Improvements
 
-- [] Testing UI: Add tests to AppBar
-- [] Testing UI: Add tests to DistanceDisplay
-- [] Testing UI: Add tests to PercentDisplay
-- [] Testing UI: Add tests to TimeDisplay
-- [] Testing UI: Add tests to TemperatureDisplay
-- [] Testing UI: Add tests to TemperatureByLocationCard
-- [] Improvement: Display a fallback error page
-- [] Improvement: extract and display error messages where relevant
-- [] Improvement: Display a loading component instead of simple text
-- [] Improvement: Inject API Key in RTK Query endpoint instead of retrieving it in component files
-- [] Feature: Allow user to switch units. This should be saved in local storage
-- [] Feature: Allow users to change default locations. Should be saved in local storage
+- [ ] Testing UI: Add tests to AppBar
+- [ ] Testing UI: Add tests to DistanceDisplay
+- [ ] Testing UI: Add tests to PercentDisplay
+- [ ] Testing UI: Add tests to TimeDisplay
+- [ ] Testing UI: Add tests to TemperatureDisplay
+- [ ] Testing UI: Add tests to TemperatureByLocationCard
+- [ ] Improvement: Display a fallback error page
+- [ ] Improvement: extract and display error messages where relevant
+- [ ] Improvement: Display a loading component instead of simple text
+- [ ] Improvement: Inject API Key in RTK Query endpoint instead of retrieving it in component files
+- [ ] Feature: Allow user to switch units. This should be saved in local storage
+- [ ] Feature: Allow users to change default locations. Should be saved in local storage
