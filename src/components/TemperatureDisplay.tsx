@@ -27,7 +27,7 @@ export const TemperatureDisplay = (props: TemperatureDisplayProps) => {
   const {
     value,
     unit,
-    prepend = '',
+    prepend = null,
     size = 'sm',
     TypographyProps = {},
     precision = 0,

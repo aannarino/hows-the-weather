@@ -1,6 +1,7 @@
 import { AppBar } from 'src/components/AppBar';
 import { useNavigate, useParams } from 'react-router-dom';
 import { PercentDisplay } from 'src/components/PercentDisplay';
+import { SpeedDisplay } from 'src/components/SpeedDisplay';
 
 export const LocationViewPage = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export const LocationViewPage = () => {
         displayBackButton={true}
         onClickBackButton={backButtonCB}
       />
+      <SpeedDisplay value={10} size="md" />
     </>
   );
 };
