@@ -3,7 +3,7 @@ import type { TypographyProps } from '@mui/material/Typography';
 import { sizeMap } from 'src/utils/styleUtils';
 import type { size } from 'src/utils/styleUtils';
 
-export interface SpeedDisplayProps {
+export interface DistanceDisplayProps {
   value: number; //Km or Mi
   unit?: 'standard' | 'metric' | 'imperial';
   prepend?: string;
@@ -11,7 +11,7 @@ export interface SpeedDisplayProps {
   TypographyProps?: TypographyProps;
 }
 
-export const SpeedDisplay = (props: SpeedDisplayProps) => {
+export const DistanceDisplay = (props: DistanceDisplayProps) => {
   const {
     value,
     unit = 'metric',

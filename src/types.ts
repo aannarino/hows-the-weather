@@ -68,32 +68,32 @@ export interface CurrentWeatherByCityQueryParameters {
 }
 
 export interface CurrentWeatherByLocationResponse {
-  coord?: {
-    lon?: number; //longitude of location
-    lat?: number; //latitude of location
+  coord: {
+    lon: number; //longitude of location
+    lat: number; //latitude of location
   };
-  weather?: {
-    id?: number;
-    main?: string; //group of weather parameters (rain, snow, extreme, etc)
-    description?: string; //weather condition within group (moderate rain). can be obtained by adding a lang query parameter to the request
-    icon?: string; //weather icon id
+  weather: Array<{
+    id: number;
+    main: string; //group of weather parameters (rain, snow, extreme, etc)
+    description: string; //weather condition within group (moderate rain). can be obtained by adding a lang query parameter to the request
+    icon: string; //weather icon id
+  }>;
+  base: string;
+  main: {
+    temp: number; //default unit kelvin
+    feels_like: number; // temperature accounting for human perception. Default unit kelvin
+    pressure: number; // atmospheric pressure at sea level (or ground if sea level is not available). units hPa
+    humidity: number; //humidtiy in percentage
+    temp_min: number; //default unit kelvin
+    temp_max: number; //default unit kelvin
+    sea_level: number; //atmospheric pressure at sea level. unit hPa
+    grnd_level: number; //atmospheric pressure at ground level. unit hPa
   };
-  base?: string;
-  main?: {
-    temp?: number; //default unit kelvin
-    feels_like?: number; // temperature accounting for human perception. Default unit kelvin
-    pressure?: number; // atmospheric pressure at sea level (or ground if sea level is not available). units hPa
-    humidity?: number; //humidtiy in percentage
-    temp_min?: number; //default unit kelvin
-    temp_max?: number; //default unit kelvin
-    sea_level?: number; //atmospheric pressure at sea level. unit hPa
-    grnd_level?: number; //atmospheric pressure at ground level. unit hPa
-  };
-  visibility?: number; //maximum value is 10km
-  wind?: {
-    speed?: number; //default unit meter/sec
-    deg?: number; //wind direction in degrees (meterological)
-    gust?: number; //default meter/sec
+  visibility: number; //maximum value is 10km
+  wind: {
+    speed: number; //default unit meter/sec
+    deg: number; //wind direction in degrees (meterological)
+    gust: number; //default meter/sec
   };
   clouds?: {
     all?: number; //cloudiness in percentage
@@ -106,19 +106,19 @@ export interface CurrentWeatherByLocationResponse {
     '1h'?: number; //snow volume last hour mm
     '3h'?: number; //snow volume last 3 hours mm
   };
-  dt?: number; //time of data calculation unix UTC
-  sys?: {
-    type?: number;
-    id?: number;
-    message?: string;
-    country?: string; //country code
-    sunrise?: number; //sunrise time unix utc
-    sunset?: number; //sunset time unix utc
+  dt: number; //time of data calculation unix UTC
+  sys: {
+    type: number;
+    id: number;
+    message: string;
+    country: string; //country code
+    sunrise: number; //sunrise time unix utc
+    sunset: number; //sunset time unix utc
   };
-  timezone?: number; //shift in seconds from UTC
-  id?: number; //city id (deprecated)
-  name?: string; //city name
-  cod?: number;
+  timezone: number; //shift in seconds from UTC
+  id: number; //city id (deprecated)
+  name: string; //city name
+  cod: number;
 }
 
 export interface GeocodingQueryParameters {

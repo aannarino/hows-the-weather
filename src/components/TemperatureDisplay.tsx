@@ -5,7 +5,7 @@ import type { size } from 'src/utils/styleUtils';
 
 export interface TemperatureDisplayProps {
   value: number;
-  unit: 'C' | 'F';
+  unit?: 'C' | 'F';
   precision?: number;
   prepend?: string;
   size?: size;
@@ -26,7 +26,7 @@ const normalizePrecision = (precision: number) => {
 export const TemperatureDisplay = (props: TemperatureDisplayProps) => {
   const {
     value,
-    unit,
+    unit = 'C',
     prepend = null,
     size = 'sm',
     TypographyProps = {},

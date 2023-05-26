@@ -3,6 +3,7 @@ export interface CompleteTime {
   minutes: number;
   seconds: number;
 }
+// Time should be in milliseconds from the epoch
 export const getCompleteUTCTime = (time: number): CompleteTime => {
   const date = new Date(time);
   const hours = Number(date.getUTCHours().toPrecision(2));
