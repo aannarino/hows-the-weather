@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography';
 import type { TypographyProps } from '@mui/material/Typography';
-
-type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+import { sizeMap } from 'src/utils/styleUtils';
+import type { size } from 'src/utils/styleUtils';
 
 export interface TemperatureDisplayProps {
   value: number;
@@ -11,14 +11,6 @@ export interface TemperatureDisplayProps {
   size?: size;
   TypographyProps?: TypographyProps;
 }
-
-const sizeMap: Record<size, string> = {
-  xs: '6px',
-  sm: '12px',
-  md: '24px',
-  lg: '48px',
-  xl: '96px',
-};
 
 // Value to be passed into toFixed must be between 0 and 100 (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed#parameters)
 const normalizePrecision = (precision: number) => {
