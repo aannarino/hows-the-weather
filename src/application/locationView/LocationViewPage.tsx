@@ -1,12 +1,13 @@
 import { AppBar } from 'src/components/AppBar';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const LocationViewPage = () => {
   const navigate = useNavigate();
   const backButtonCB = () => navigate(-1);
+  const { city = 'Name could not be found' } = useParams();
   return (
     <AppBar
-      title="Replace with location name"
+      title={city}
       displayBackButton={true}
       onClickBackButton={backButtonCB}
     />
