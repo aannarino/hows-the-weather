@@ -1,4 +1,4 @@
-import { TemperatureDisplay } from 'src/components/TemperatureDisplay';
+import { TemperatureDisplay } from 'src/components/TemperatureDisplay/TemperatureDisplay';
 import Typography from '@mui/material/Typography';
 import { sizeMap } from 'src/utils/styleUtils';
 

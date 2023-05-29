@@ -1,4 +1,4 @@
-import { AppBar } from 'src/components/AppBar';
+import { AppBar } from 'src/components/AppBar/AppBar';
 import { useNavigate, useParams } from 'react-router-dom';
 import { TemperatureOverview } from './components/TemperatureOverview';
 import { AdditionalInfoOverview } from './components/AdditionalInfoOverview';

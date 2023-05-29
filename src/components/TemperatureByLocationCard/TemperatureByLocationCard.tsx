@@ -4,8 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import type { CardContentProps } from '@mui/material/CardContent';
 
 import { CardSkeletonLoader } from '../SkeletonLoaders/CardSkeletonLoader';
-import { TemperatureDisplay } from '../TemperatureDisplay';
-import type { TemperatureDisplayProps } from '../TemperatureDisplay';
+import { TemperatureDisplay } from '../TemperatureDisplay/TemperatureDisplay';
+import type { TemperatureDisplayProps } from '../TemperatureDisplay/TemperatureDisplay';
 import { Link } from 'react-router-dom';
 import { LinkProps } from 'react-router-dom';
 import { ErrorBoundary, useErrorBoundary } from 'react-error-boundary';
