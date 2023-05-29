@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid';
 import { TimeDisplay } from 'src/components/TimeDisplay';
 import { PercentDisplay } from 'src/components/PercentDisplay';
-import { DistanceDisplay } from 'src/components/DistanceDisplay';
+import { DistanceDisplay } from 'src/components/DistanceDisplay/DistanceDisplay';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
