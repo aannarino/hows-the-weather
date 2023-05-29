@@ -7,7 +7,7 @@ import { DashboardPage } from './application/dashboard/DashboardPage';
 import { LocationViewPage } from './application/locationView/LocationViewPage';
 import { ErrorPage } from './application/ErrorPage';
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: '/hows-the-weather/',
     element: <DashboardPage />,

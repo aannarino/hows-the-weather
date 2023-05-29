@@ -1,4 +1,4 @@
-import type { TemperatureByLocationCardProps } from 'src/components/TemperatureByLocationCard';
+import type { TemperatureByLocationCardProps } from 'src/components/TemperatureByLocationCard/TemperatureByLocationCard';
 import { useGetCurrentWeatherByCityQuery } from 'src/api/services/openWeatherAPI';
 import { useError } from 'src/hooks/useError';
 import { useEffect } from 'react';

@@ -14,7 +14,7 @@ export interface CardSkeletonLoaderProps {
 export const CardSkeletonLoader = (props: CardSkeletonLoaderProps) => {
   const { CardProps = {}, CardContentProps = {}, SkeletonProps = {} } = props;
   return (
-    <Card {...CardProps}>
+    <Card {...CardProps} aria-live="polite" aria-busy="true">
       <CardContent {...CardContentProps}>
         <Skeleton variant="rectangular" {...SkeletonProps} />
       </CardContent>

@@ -1,6 +1,6 @@
 import { AppBar } from 'src/components/AppBar';
 import Grid from '@mui/material/Grid';
-import TemperatureByLocationCard from 'src/components/TemperatureByLocationCard';
+import TemperatureByLocationCard from 'src/components/TemperatureByLocationCard/TemperatureByLocationCard';
 import { useUserLocationCard } from './useUserLocationCard';
 import { useFirstLocationCard } from './useFirstLocationCard';
 import { useSecondLocationCard } from './useSecondLocationCard';

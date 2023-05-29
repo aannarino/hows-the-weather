@@ -3,13 +3,13 @@ import type { CardProps } from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import type { CardContentProps } from '@mui/material/CardContent';
 
-import { CardSkeletonLoader } from './SkeletonLoaders/CardSkeletonLoader';
-import { TemperatureDisplay } from './TemperatureDisplay';
-import type { TemperatureDisplayProps } from './TemperatureDisplay';
+import { CardSkeletonLoader } from '../SkeletonLoaders/CardSkeletonLoader';
+import { TemperatureDisplay } from '../TemperatureDisplay';
+import type { TemperatureDisplayProps } from '../TemperatureDisplay';
 import { Link } from 'react-router-dom';
 import { LinkProps } from 'react-router-dom';
 import { ErrorBoundary, useErrorBoundary } from 'react-error-boundary';
-import { ErrorFallbackCard } from './ErrorFallbackComponents/ErrorFallbackCard';
+import { ErrorFallbackCard } from '../ErrorFallbackComponents/ErrorFallbackCard';
 
 export interface TemperatureByLocationCardProps
   extends TemperatureDisplayProps {
@@ -41,7 +41,7 @@ const TemperatureByLocationCard = (props: TemperatureByLocationCardProps) => {
   return loading ? (
     <CardSkeletonLoader />
   ) : (
-    <Card {...CardProps}>
+    <Card aria-live="polite" aria-busy="true" {...CardProps}>
       <Link to={`/hows-the-weather/location/${location}`} {...LinkProps}>
         <CardContent {...CardContentProps}>
           <TemperatureDisplay prepend={location} {...TemperatureDisplayProps} />
